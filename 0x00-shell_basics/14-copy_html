@@ -1,2 +1,2 @@
 #!/bin/bash
-cp file_0.html file_1.html file_2.html /tmp
+cp file_0.html file_1.html file_2.html /tmp/.html
