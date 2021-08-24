@@ -1,6 +1,6 @@
 # Shell, permissions
 
-Project done during **Full Stack Software Engineering studies** at **Holberton School**. It aims to learn about man pages, permissions (owner, group and other) of files and directories in **Shell**.
+Project done during **Full Stack Software Engineering studies** at **ALX Software Enigneering School**. It aims to learn about man pages, permissions (owner, group and other) of files and directories in **Shell**.
 
 ## Technologies
 * Scripts written in Bash 4.3.11(1)
