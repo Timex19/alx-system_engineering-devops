@@ -17,7 +17,7 @@ Read or watch:
 
 | Filename | Description |
 | -------- | ----------- |
-| `0-simply_match_holberton.rb` | A regular expression that matches `Holberton` |
+| `0-simply_match_school.rb` | A regular expression that matches `School` |
 | `1-repetition_token_0.rb` | A regular expression that matches `hbttn` |
 | `2-repetition_token_1.rb` | A regular expression that matches `htn` and `hbtn` |
 | `3-repetition_token_2.rb` | A regular expression that matches `hbtn`, where the letter `t` can be replied |
