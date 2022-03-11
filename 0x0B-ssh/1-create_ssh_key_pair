@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 # Generate holberton ssh key protected by phrase
 ssh-keygen -t rsa -f holberton -b 4096 -N betty
+=======
+# Generate school ssh key protected by phrase
+
+ssh-keygen -t rsa -f school -b 4096 -N betty
+>>>>>>> 6f6b09a608039ad7192ebf607a9f85d67a503465
