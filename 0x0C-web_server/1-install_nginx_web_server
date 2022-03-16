@@ -2,5 +2,5 @@
 # Install NGNINX an start service
 apt-get -y update
 apt-get -y install nginx
-echo "Holberton School" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 service nginx start
