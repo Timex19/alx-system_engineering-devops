@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 0x0C. Web server
 
 ## Resources:books:
@@ -79,4 +78,3 @@ All of the following folders are projects done during the studies:
 | [`0x06-regular_expressions`](https://github.com/Timex19/alx-system_engineering-devops/tree/master/0x06-regular_expressions) | It aims to learn about how to build a regular expression |
 | [`0x07-networking_basics`](https://github.com/Timex19/alx-system_engineering-devops/tree/master/0x07-networking_basics) | It aims to learn about what is an OSI model, LAN, WAN, IP address, localhost, subnet and TCP/UDP |
 | [`0x08-networking_basics_2`](https://github.com/Timex19/alx-system_engineering-devops/tree/master/0x08-networking_basics_2) | It aims to learn about what is localhost/127.0.0.1, what is 0.0.0.0, what is `/etc/hosts` and how to display the machine's active network interfaces |
->>>>>>> d501ae7932f77de7cc12cef302a52b6a78e62d6f
