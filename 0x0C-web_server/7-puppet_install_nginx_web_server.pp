@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
-#Install nginx web server
+# Install Nginx web server using Puppet
 
-exec { 'Install Nginx web server':
+exec {'nginx_install':
+  command  => 'sudo apt-get -y update ; sudo apt-get -y install nginx ; echo "Holberton School" | sudo tee /var/www/html/index.html',
   provider => shell,
-    command  => 'apt-get -y update ; apt-get -y install nginx ; echo "Holberton School" > /var/www/html/index.html ;  sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me http:\/\/davidgonzalezfx.xyz permanent;/" /etc/nginx/sites-available/default ; service nginx start'
-
+}
+exec {'nginx_full':
+  command  => 'sudo sed -i "30i \\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=oavMtUWDBTM;\n}" /etc/nginx/sites-available/default ; sudo service nginx restart',
+  provider => shell,
 }
