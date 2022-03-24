@@ -1,6 +1,6 @@
 global
-	log /dev/log	local0
-	log /dev/log	local1 notice
+	log /dev/log    local0
+	log /dev/log    local1 notice
 	chroot /var/lib/haproxy
 	stats socket /run/haproxy/admin.sock mode 660 level admin
 	stats timeout 30s
@@ -21,15 +21,15 @@ global
 	ssl-default-bind-options no-sslv3
 
 defaults
-	log	global
-	mode	http
-	option	httplog
-	option	dontlognull
-	option forwardfor
-	option http-server-close
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
+	log     global
+	mode    http
+	option  httplog
+	option  dontlognull
+	option  forwardfor
+	option  http-server-close
+	timeout connect 5000
+	timeout client  50000
+	timeout server  50000
 	errorfile 400 /etc/haproxy/errors/400.http
 	errorfile 403 /etc/haproxy/errors/403.http
 	errorfile 408 /etc/haproxy/errors/408.http
@@ -38,23 +38,23 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http
-        bind *:80
-        mode http
-	default_backend holbie_back
+frontend www-http
+	 bind *:80
+	 reqadd X-Forwarded-Proto:\ http
+	 default_backend www-backend
 
 frontend www-https
-   	bind *:443 ssl crt /etc/haproxy/certs/www.dsgonzalez.tech.pem
-   	reqadd X-Forwarded-Proto:\ https
-   	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-   	use_backend letsencrypt-backend if letsencrypt-acl
-   	default_backend holbie_back
+	 bind *:443 ssl crt /etc/haproxy/certs/alexaorrico.online.pem
+	 reqadd X-Forwarded-Proto:\ https
+	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	 use_backend letsencrypt-backend if letsencrypt-acl
+	 default_backend www-backend
 
-backend holbie_back
+backend www-backend
 	redirect scheme https if !{ ssl_fc }
-        balance roundrobin
-        server web-01 35.237.178.155:80 check
-        server web-02 34.74.70.223:80 check
+	balance roundrobin
+	server 210-web-01 142.44.167.228:80 check
+	server 210-web-02 144.217.246.195:80 check
 
 backend letsencrypt-backend
-   	server letsencrypt 127.0.0.1:54321
+	server letsencrypt 127.0.0.1:54321
