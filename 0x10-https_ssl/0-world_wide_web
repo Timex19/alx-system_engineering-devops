@@ -2,11 +2,11 @@
 # Bash script that will display information about subdomains.
 custom_fn ()
 {
-	for arg
-	do
-		echo -n "The subdomain $arg is a "
-		dig $arg."$domain" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print $4 " record and points to " $5}'
-	done
+    for arg
+    do
+	echo -n "The subdomain $arg is a "
+	dig $arg."$domain" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print $4 " record and points to " $5}'
+    done
 }
 
 domain="$1"
