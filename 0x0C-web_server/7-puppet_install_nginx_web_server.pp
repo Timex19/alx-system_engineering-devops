@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
 #Install nginx web server
 
-exec { 'Install Nginx web server':
-  provider => shell,
-  command  => 'apt-get -y update ; apt-get -y install nginx ; echo "Holberton School" > /var/www/html/index.html ;  sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me http:\/\/ojotimilehin.xyz permanent;/" /etc/nginx/sites-available/default ; service nginx start'
+package { 'nginx':
+  ensure => installed,
+}
+
+file_line { 'aaaaa':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+}
+
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
+}
+
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
